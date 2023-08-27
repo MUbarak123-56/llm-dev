@@ -10,9 +10,9 @@ st.title('🦜🔗 Ask the Data App')
 
 # Load CSV file
 def load_file(input_file):
-  if input_file[-4:] == ".csv":
+  if input_file.name[-4:] == ".csv":
       df = pd.read_csv(input_file)
-  elif input_file[-5:] == ".xlsx":
+  elif input_file.name[-5:] == ".xlsx":
       df = pd.read_excel(input_file)
   with st.expander('See DataFrame'):
     st.write(df)
