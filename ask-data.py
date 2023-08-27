@@ -19,9 +19,9 @@ def load_file(input_file):
   return df
 
 # Generate LLM response
-def generate_response(csv_file, input_query):
+def generate_response(input_file, input_query):
   llm = ChatOpenAI(model_name='gpt-4', temperature=0.1, openai_api_key=openai_api_key)
-  df = load_csv(csv_file)
+  df = load_file(input_file)
   # Create Pandas DataFrame Agent
   agent = create_pandas_dataframe_agent(llm, df, verbose=True, agent_type=AgentType.OPENAI_FUNCTIONS)
   # Perform Query using the Agent
